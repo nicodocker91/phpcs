@@ -1,0 +1,19 @@
+<documentation title="Duplicate Array keys.">
+    <standard>
+    <![CDATA[
+This sniff checks usage of identical keys in array.
+    ]]>
+    </standard>
+    <code_comparison>
+        <code title="Valid: This array does not contain identical keys.">
+        <![CDATA[
+$array = ['a' => 1, 'b' => 2];
+        ]]>
+        </code>
+        <code title="Invalid: This array contains two identical keys.">
+        <![CDATA[
+$array = ['a' => 1, 'a' => 2];
+        ]]>
+        </code>
+    </code_comparison>
+</documentation>

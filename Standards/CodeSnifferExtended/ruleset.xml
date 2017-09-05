@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<ruleset name="CodeSnifferExtended">
+    <description>Standards of PHP Code Sniffer plus some extended rules.</description>
+
+    <!-- Rules from PSR-2 -->
+    <rule ref="PSR2"/>
+
+    <!-- Ignore PSR2.Namespaces.UseDeclaration.MultipleDeclarations rule as it does not fit with PHP 7 -->
+    <rule ref="PSR2.Namespaces.UseDeclaration.MultipleDeclarations">
+        <severity>0</severity>
+    </rule>
+
+    <!-- Ignore Squiz.Arrays.ArrayBracketSpacing.SpaceBeforeBracket rule as it does not fit with PHP 7.1 -->
+    <rule ref="Squiz.Arrays.ArrayBracketSpacing.SpaceBeforeBracket ">
+        <severity>0</severity>
+    </rule>
+
+    <!-- Check for empty statements -->
+    <rule ref="Generic.CodeAnalysis.EmptyStatement"/>
+
+    <!-- Check for function calls in for loop tests -->
+    <rule ref="Generic.CodeAnalysis.ForLoopWithTestFunctionCall"/>
+
+    <!-- Check for unused argument -->
+    <rule ref="Generic.CodeAnalysis.UnusedFunctionParameter"/>
+
+    <!-- Check for useless overriding method -->
+    <rule ref="Generic.CodeAnalysis.UselessOverridingMethod"/>
+
+    <!-- Check there must no space after a cast -->
+    <rule ref="Generic.Formatting.NoSpaceAfterCast"/>
+
+    <!-- Check for call time pass by reference -->
+    <rule ref="Generic.Functions.CallTimePassByReference"/>
+
+    <!-- Check the cyclomatic complexity -->
+    <rule ref="Generic.Metrics.CyclomaticComplexity">
+        <properties>
+            <property name="complexity" value="10"/>
+            <property name="absoluteComplexity" value="15"/>
+        </properties>
+    </rule>
+
+    <!-- Check the nesting level -->
+    <rule ref="Generic.Metrics.NestingLevel">
+        <properties>
+            <property name="nestingLevel" value="3" />
+            <property name="absoluteNestingLevel" value="5" />
+        </properties>
+    </rule>
+
+    <!-- Check for no use of deprecated functions -->
+    <rule ref="Generic.PHP.DeprecatedFunctions"/>
+
+    <!-- Check for no use of silenced error operator -->
+    <rule ref="Generic.PHP.NoSilencedErrors"/>
+
+    <!-- Check the if are two or more conditional statement -->
+    <rule ref="Generic.CodeAnalysis.UnconditionalIfStatement"/>
+
+    <!-- Check for utility of "final" keyword on methods -->
+    <rule ref="Generic.CodeAnalysis.UnnecessaryFinalModifier"/>
+
+    <!-- Check for # comments that are not allowed -->
+    <rule ref="PEAR.Commenting.InlineComment"/>
+
+    <!-- Check that all functions are methods of classes -->
+    <rule ref="Squiz.Functions.GlobalFunction"/>
+
+    <!-- Check for no use of "global" keyword -->
+    <rule ref="Squiz.PHP.GlobalKeyword"/>
+
+    <!-- Check the array bracket spacing -->
+    <rule ref="Squiz.Arrays.ArrayBracketSpacing"/>
+
+    <!-- Check the operator spacing -->
+    <rule ref="Squiz.WhiteSpace.LogicalOperatorSpacing"/>
+
+    <!-- Check the semi-colon spacing -->
+    <rule ref="Squiz.WhiteSpace.SemicolonSpacing"/>
+
+    <!-- Check for non executable code -->
+    <rule ref="Squiz.PHP.NonExecutableCode"/>
+
+    <!-- Check for bad usages of self:: operator -->
+    <rule ref="Squiz.Classes.SelfMemberReference"/>
+
+    <!-- Check for double quote usage -->
+    <rule ref="Squiz.Strings.DoubleQuoteUsage"/>
+
+    <!-- Ignore TooManyParameters as its usage need to be tested. -->
+    <rule ref="CodeSnifferExtended.CodeSmell.TooManyParameters">
+        <severity>0</severity>
+        <!-- Do not parse constructors as they often need to manage all references. -->
+        <properties>
+            <property name="ignoreConstructors" value="true"/>
+        </properties>
+    </rule>
+
+    <!-- Ignore namespace trouble and declaration of strict_types (for PHP 7) for the AppKernel files -->
+    <rule ref="CodeSnifferExtended.General.DeclareStrictTypes">
+        <exclude-pattern>*/app/AppKernel.php</exclude-pattern>
+    </rule>
+    <rule ref="PSR1.Classes.ClassDeclaration.MissingNamespace">
+        <exclude-pattern>*/app/AppKernel.php</exclude-pattern>
+    </rule>
+</ruleset>

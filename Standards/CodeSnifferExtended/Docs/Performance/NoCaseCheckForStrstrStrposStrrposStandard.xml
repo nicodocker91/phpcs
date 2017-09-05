@@ -1,0 +1,26 @@
+<documentation title="No case check for strstr strpos strrpos.">
+    <standard>
+    <![CDATA[
+This sniff reports usages of some case checks functions while it is not required. This sniff applies on functions stristr(), stripos() and strirpos().
+    ]]>
+    </standard>
+    <code_comparison>
+        <code title="Valid: usage of strstr (not case sensitive function).">
+        <![CDATA[
+$a = strstr('StRiNg', '@');
+$a = strpos('StRiNg', '@');
+$a = strrpos('StRiNg', '@');
+
+//But this is valid:
+$a = stristr('StRiNg', 'T');
+        ]]>
+        </code>
+        <code title="Invalid: usage of case insensitive function.">
+        <![CDATA[
+$a = stristr('StRiNg', '@');
+$a = stripos('StRiNg', '@');
+$a = strirpos('StRiNg', '@');
+        ]]>
+        </code>
+    </code_comparison>
+</documentation>

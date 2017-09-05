@@ -1,0 +1,19 @@
+<documentation title="Nested not operator usage.">
+    <standard>
+    <![CDATA[
+This sniff prohibits the boolean not operator more that once.
+    ]]>
+    </standard>
+    <code_comparison>
+        <code title="Valid: cast instead a double not operator.">
+        <![CDATA[
+$var = (bool)$a;
+        ]]>
+        </code>
+        <code title="Invalid: nested operator.">
+        <![CDATA[
+$var = !!$a;
+        ]]>
+        </code>
+    </code_comparison>
+</documentation>

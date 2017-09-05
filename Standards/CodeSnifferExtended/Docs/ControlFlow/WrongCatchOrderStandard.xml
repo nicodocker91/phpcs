@@ -1,0 +1,41 @@
+<documentation title="Check the order integrity of catches and check there are no double definition of the same exception catching type.">
+    <standard>
+    <![CDATA[
+This sniff detects if you catch several times the same exception, or you catch \Exception in first when you have several exception types catching later.
+    ]]>
+    </standard>
+    <code_comparison>
+        <code title="Valid: orders of catching execution are good and no catching twice the same exception type.">
+         <![CDATA[
+try {
+    // Do something...
+} catch (OtherException $other) {
+    // Come here if OtherException is thrown.
+} catch (\Exception $e) {
+    // Come here if any exception but not OtherException is thrown.
+}
+        ]]>
+        </code>
+        <code title="Invalid: orders of catching execution are not good as generic \Exception is caught before everything else. Also, try to catch twice the same exception type.">
+        <![CDATA[
+//Catching order is not relevant.
+try {
+    // Do something...
+} catch (\Exception $e) {
+    // Come here if any exception is thrown.
+} catch (OtherException $other) {
+    // You cannot reach this statement.
+}
+
+//Catching twice the same exception type.
+try {
+    // Do something...
+} catch (MySuperException $e) {
+    // Come here if MySuperException is thrown.
+} catch (MySuperException $other) {
+    // You cannot reach this statement as already defined above.
+}
+        ]]>
+        </code>
+    </code_comparison>
+</documentation>

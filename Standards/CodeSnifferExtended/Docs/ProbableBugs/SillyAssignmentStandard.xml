@@ -1,0 +1,21 @@
+<documentation title="Silly assignment.">
+    <standard>
+    <![CDATA[
+This sniff prohibits the use of silly assignments.
+    ]]>
+    </standard>
+    <code_comparison>
+        <code title="Valid: you assign values to different variables.">
+        <![CDATA[
+$a = $b;
+$array['foo'] = $otherArray['foo'];
+        ]]>
+        </code>
+        <code title="Invalid: you assign values to the same variables.">
+        <![CDATA[
+$a = $a;
+$array['foo'] = $array['foo'];
+        ]]>
+        </code>
+    </code_comparison>
+</documentation>

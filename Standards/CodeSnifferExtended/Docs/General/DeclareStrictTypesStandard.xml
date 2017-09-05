@@ -1,0 +1,33 @@
+<documentation title="Declare Strict Types for PHP must be mandatory.">
+    <standard>
+    <![CDATA[
+This sniff oblige PHP 7 code to have the <code>declare(strict_types = 1);</code> as first statement for each files.
+    ]]>
+    </standard>
+    <code_comparison>
+        <code title="Valid: declaring the strict_types to 1.">
+        <![CDATA[
+//PHP 7 only
+declare(strict_types = 1);
+
+namespace Test;
+
+class Test
+{
+    // Define something...
+}
+        ]]>
+        </code>
+        <code title="Invalid: not declaring the strict_types to 1, which is not recommended for PHP 7 source code.">
+        <![CDATA[
+//PHP 7 only
+namespace Test;
+
+class Test
+{
+    // Define something...
+}
+        ]]>
+        </code>
+    </code_comparison>
+</documentation>

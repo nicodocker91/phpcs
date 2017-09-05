@@ -1,0 +1,25 @@
+<documentation title="Is null could be replace by null operator.">
+    <standard>
+    <![CDATA[
+This sniff reports usages of is_null function.
+    ]]>
+    </standard>
+    <code_comparison>
+        <code title="Valid: check the null value with a strict equality.">
+        <![CDATA[
+$a = null;
+if (null === $a) {
+    ...
+}
+        ]]>
+        </code>
+        <code title="Invalid: check the null value with a function.">
+        <![CDATA[
+$a = null;
+if (is_null($a)) {
+    ...
+}
+        ]]>
+        </code>
+    </code_comparison>
+</documentation>

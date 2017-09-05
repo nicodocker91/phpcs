@@ -1,0 +1,19 @@
+<documentation title="Space before and after concatenation operator.">
+    <standard>
+    <![CDATA[
+This sniff check if you have a space before and after the concatenation operator.
+    ]]>
+    </standard>
+    <code_comparison>
+        <code title="Valid: Correct spacing.">
+        <![CDATA[
+$var = 'First string' . $string;
+        ]]>
+        </code>
+        <code title="Invalid: no spaces before and after the concatenation operator.">
+        <![CDATA[
+$var = 'First string'.$string;
+        ]]>
+        </code>
+    </code_comparison>
+</documentation>

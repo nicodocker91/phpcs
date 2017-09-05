@@ -1,0 +1,19 @@
+<documentation title="Ternary operator could be simplified.">
+    <standard>
+    <![CDATA[
+This sniff reports when useless definition of <code>true</code> and <code>false</code> are used in ternary operations.
+    ]]>
+    </standard>
+    <code_comparison>
+        <code title="Valid: operation is sufficient by itself.">
+        <![CDATA[
+(1 === true);
+        ]]>
+        </code>
+        <code title="Invalid: useless usage ternary operation here.">
+        <![CDATA[
+(1 === true ? true : false);
+        ]]>
+        </code>
+    </code_comparison>
+</documentation>

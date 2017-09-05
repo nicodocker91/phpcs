@@ -1,0 +1,31 @@
+<documentation title="Deprecated old constructor style.">
+    <standard>
+    <![CDATA[
+This sniff avoid usage of deprecated old style constructor.
+    ]]>
+    </standard>
+    <code_comparison>
+        <code title="Valid: usage of __constructor magic method.">
+        <![CDATA[
+class Toto
+{
+    public function __construct()
+    {
+        //Good constructor usage.
+    }
+}
+        ]]>
+        </code>
+        <code title="Invalid: usage of old constructor.">
+        <![CDATA[
+class Toto
+{
+    public function Toto()
+    {
+        //Old constructor style deprecated since PHP 5.
+    }
+}
+        ]]>
+        </code>
+    </code_comparison>
+</documentation>

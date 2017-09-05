@@ -1,0 +1,69 @@
+<documentation title="Too many parameters declared in function and methods.">
+    <standard>
+        <![CDATA[
+This sniff prohibits the use of too many parameters declared in functions and methods.
+        ]]>
+    </standard>
+    <code_comparison>
+        <code title="Valid: correct number of parameters.">
+        <![CDATA[
+/**
+ * @return void
+ */
+public function testFunction($arg1, $arg2, $arg3)
+{
+    //Methods have internal $this argument. So, maximum is only 3.
+    return;
+}
+
+/**
+ * @return void
+ */
+public static function testFunction2($arg1, $arg2, $arg3, $arg4)
+{
+    //Static methods do not have $this argument. So, maximum is 4.
+    return;
+}
+
+/**
+ * @return void
+ */
+function function3($arg1, $arg2, $arg3, $arg4)
+{
+    //Functions do not have $this argument. So, maximum is 4.
+    return;
+}
+        ]]>
+        </code>
+        <code title="Invalid: too many parameters for method or functions.">
+        <![CDATA[
+/**
+ * @return void
+ */
+public function testFunction($arg1, $arg2, $arg3, $arg4)
+{
+    //Methods have internal $this argument. So, maximum is only 3.
+    return;
+}
+
+/**
+ * @return void
+ */
+public static function testFunction2($arg1, $arg2, $arg3, $arg4, $arg5)
+{
+    //Static methods do not have $this argument. So, maximum is 4.
+    return;
+}
+
+/**
+ * @return void
+ */
+function function3($arg1, $arg2, $arg3, $arg4, $arg5)
+{
+    //Functions do not have $this argument. So, maximum is 4.
+    return;
+}
+        ]]>
+        </code>
+    </code_comparison>
+</documentation>

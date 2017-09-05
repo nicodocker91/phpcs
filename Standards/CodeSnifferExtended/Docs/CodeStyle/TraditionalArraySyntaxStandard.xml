@@ -1,0 +1,19 @@
+<documentation title="Traditional array syntax.">
+    <standard>
+    <![CDATA[
+This sniff prohibits the use of traditional array syntax like array(...) instead of [...].
+    ]]>
+    </standard>
+    <code_comparison>
+        <code title="Valid: use the short syntax.">
+        <![CDATA[
+$a = [];
+        ]]>
+        </code>
+        <code title="Invalid: use the elder syntax.">
+        <![CDATA[
+$a = array();
+        ]]>
+        </code>
+    </code_comparison>
+</documentation>

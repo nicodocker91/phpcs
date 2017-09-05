@@ -1,0 +1,21 @@
+<documentation title="Use time() function instead of mktime() or gmmktime() if they have no arguments.">
+    <standard>
+    <![CDATA[
+This sniff avoid usage of gmmktime() and mktime() functions if they have no arguments.
+    ]]>
+    </standard>
+    <code_comparison>
+        <code title="Valid: usage of time() function.">
+        <![CDATA[
+$time = time();
+        ]]>
+        </code>
+        <code title="Invalid: usage of mktime() of gmmktime() functions.">
+        <![CDATA[
+$time = mktime();
+// or
+$time = gmmktime();
+        ]]>
+        </code>
+    </code_comparison>
+</documentation>

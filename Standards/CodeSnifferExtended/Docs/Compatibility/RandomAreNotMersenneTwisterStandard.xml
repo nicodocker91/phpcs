@@ -1,0 +1,23 @@
+<documentation title="Use Mersenne Twister functions instead of classic functions from the random API.">
+    <standard>
+    <![CDATA[
+This sniff avoid usage of default random API functions and prefer using the Mersenne Twister random API functions.
+    ]]>
+    </standard>
+    <code_comparison>
+        <code title="Valid: usages of Mersenne Twister functions.">
+        <![CDATA[
+mt_rand();
+mt_srand();
+mt_getrandmax();
+        ]]>
+        </code>
+        <code title="Invalid: usages of classic random functions.">
+        <![CDATA[
+rand();
+srand();
+getrandmax();
+        ]]>
+        </code>
+    </code_comparison>
+</documentation>

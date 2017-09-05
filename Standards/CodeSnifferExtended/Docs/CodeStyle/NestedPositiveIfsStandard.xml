@@ -1,0 +1,25 @@
+<documentation title="Nested positive ifs.">
+    <standard>
+    <![CDATA[
+This sniff detects useless nested if statements.
+    ]]>
+    </standard>
+    <code_comparison>
+        <code title="Valid: single if condition grouped.to avoid nesting levels.">
+        <![CDATA[
+if (true === $a && true === $b) {
+    //... do something
+}
+        ]]>
+        </code>
+        <code title="Invalid: useless nested levels of condition.">
+        <![CDATA[
+if (true === $a) {
+    if (true === $b) {
+        //... do something
+    }
+}
+        ]]>
+        </code>
+    </code_comparison>
+</documentation>

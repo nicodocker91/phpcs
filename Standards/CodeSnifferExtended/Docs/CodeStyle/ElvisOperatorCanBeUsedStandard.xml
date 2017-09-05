@@ -1,0 +1,19 @@
+<documentation title="Elvis operator can be used.">
+    <standard>
+    <![CDATA[
+This sniff warn the user that the elvis operator (?:) can be used.
+    ]]>
+    </standard>
+    <code_comparison>
+        <code title="Valid: usage of elvis operator.">
+        <![CDATA[
+$b = $a ?: $c;
+        ]]>
+        </code>
+        <code title="Invalid: usage of ternary operator.">
+        <![CDATA[
+$b = $a ? $a : $c;
+        ]]>
+        </code>
+    </code_comparison>
+</documentation>

@@ -1,0 +1,23 @@
+<documentation title="Foreach array is used as key or value.">
+    <standard>
+        <![CDATA[
+This sniff warns the developer when usage of identical variable symbol names are used in foreach statement.
+        ]]>
+    </standard>
+    <code_comparison>
+        <code title="Valid: array, key and value are different.">
+        <![CDATA[
+foreach ($array as $key => $value) {
+    //Do something...
+}
+        ]]>
+        </code>
+        <code title="Invalid: variable inside the foreach statement enter in conflict (2x $value).">
+        <![CDATA[
+foreach ($value as $key => $value) {
+    //Do something...
+}
+        ]]>
+        </code>
+    </code_comparison>
+</documentation>

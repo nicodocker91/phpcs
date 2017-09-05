@@ -1,0 +1,21 @@
+<documentation title="Prefix increment or decrement.">
+    <standard>
+    <![CDATA[
+This sniff detects $a += 1 or $a -= 1 instead of increment or decrement operator usage.
+    ]]>
+    </standard>
+    <code_comparison>
+        <code title="Valid: prefix/suffix incrementing/decrementing used.">
+        <![CDATA[
+$a--;
+$a++;
+        ]]>
+        </code>
+        <code title="Invalid: prefix/suffix incrementing/decrementing not used.">
+        <![CDATA[
+$a -= 1;
+$a += 1;
+        ]]>
+        </code>
+    </code_comparison>
+</documentation>

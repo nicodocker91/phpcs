@@ -1,0 +1,21 @@
+<documentation title="Array push misused.">
+    <standard>
+        <![CDATA[
+This sniff reports usages of array_push() function while it is better to use the $a[] = $x syntax.
+        ]]>
+    </standard>
+    <code_comparison>
+        <code title="Valid: use the short syntax applicable for pushing elements at the end of array.">
+        <![CDATA[
+$a = [];
+$a[] = 'test';
+        ]]>
+        </code>
+        <code title="Invalid: use of the function array_push() to add an element to an array by the end.">
+        <![CDATA[
+$a = [];
+array_push($a, 'test');
+        ]]>
+        </code>
+    </code_comparison>
+</documentation>

@@ -1,0 +1,45 @@
+<documentation title="Duplicate Array keys.">
+    <standard>
+        <![CDATA[
+This sniff warns the developer when usage of identical case value in a switch.
+        ]]>
+    </standard>
+    <code_comparison>
+        <code title="Valid: This switch does not contain the same case statements.">
+        <![CDATA[
+switch($a) {
+    case 1:
+        echo 'One';
+        break;
+    case 2:
+        echo 'Two';
+        break;
+    case 3:
+        echo 'Three';
+        break;
+    default:
+        echo 'Default';
+        break;
+}
+        ]]>
+        </code>
+        <code title="Invalid: This switch contains the same case statements.">
+        <![CDATA[
+switch($a) {
+    case 1:
+        echo 'One';
+        break;
+    case 1:
+        echo 'Two';
+        break;
+    case 3:
+        echo 'Three';
+        break;
+    default:
+        echo 'Default';
+        break;
+}
+        ]]>
+        </code>
+    </code_comparison>
+</documentation>
